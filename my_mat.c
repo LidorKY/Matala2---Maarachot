@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "my_mat.h"
 
-#define infinity 999999
+#define infinity 7777
 
 int initializingMat (int mat [10][10]){
 int num;
@@ -14,109 +14,75 @@ return 0;
 }
 
 int containsPath(int a, int b, int mat [10][10]){
-
-int initMatrix [10][10];
+    int tempMatrix [10][10];
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
-            initMatrix[i][j] = mat[i][j];
+            tempMatrix[i][j] = mat[i][j];
         }
     }
-
-    int tempMatrix [10][10];
-    int finalMatrix [10][10];
-
-    for(int k = 0; k < 10; k++){   
-        int temp1, temp2, temp3;
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
-                temp1 = initMatrix[i][j];
-                temp2 = initMatrix[i][k];
-                temp3 = initMatrix[k][j];
-                if((temp1 == 0)&&(temp2 != 0)&&(temp3 != 0)){
-                    tempMatrix[i][j] = temp2 + temp3;
-                }
-                else if((temp1 != 0)&&((temp2 == 0)||(temp3 ==0))){
-                    tempMatrix[i][j] = temp1;
-                }
-                else if((temp1 == 0)&&((temp2 == 0)||(temp3 ==0))){
-                    tempMatrix[i][j] = infinity; 
-                }
-                else{
-                    if((temp1) < (temp2 + temp3)){
-                        tempMatrix[i][j] = temp1;
-                    }
-                    else{
-                        tempMatrix[i][j] = temp2 + temp3;
-                    }
-                }
-            }  
-        }
-        // copy to final mat
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
-                finalMatrix[i][j] = tempMatrix[i][j];
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
+            if((i != j)&&(tempMatrix[i][j] == 0)){
+            tempMatrix[i][j] = infinity;
             }
         }
     }
-    if(finalMatrix[a][b] != 0){
+    for (int pivot = 0; pivot < 10; pivot++) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                
+                int temp1 = tempMatrix[i][j];
+                int temp2 = tempMatrix[i][pivot];
+                int temp3 = tempMatrix[pivot][j];
+               
+                if (temp1 > (temp2 + temp3)){
+                    tempMatrix[i][j] = temp2 + temp3;
+                }
+
+            }
+        }
+    }  
+    if((tempMatrix[a][b] != 0)&&(tempMatrix[a][b] != infinity)){
         printf("True");
         return 0;
     }
     printf("False");
     return 0;
-
 }
 
 int shortestPath(int a, int b, int mat [10][10] ){
-
-int initMatrix [10][10];
+    int tempMatrix [10][10];
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
-            initMatrix[i][j] = mat[i][j];
+            tempMatrix[i][j] = mat[i][j];
         }
     }
-
-    int tempMatrix [10][10];
-    int finalMatrix [10][10];
-
-    for(int k = 0; k < 10; k++){   
-        int temp1, temp2, temp3;
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
-                temp1 = initMatrix[i][j];
-                temp2 = initMatrix[i][k];
-                temp3 = initMatrix[k][j];
-                if((temp1 == 0)&&(temp2 != 0)&&(temp3 != 0)){
-                    tempMatrix[i][j] = temp2 + temp3;
-                }
-                else if((temp1 != 0)&&((temp2 == 0)||(temp3 ==0))){
-                    tempMatrix[i][j] = temp1;
-                }
-                else if((temp1 == 0)&&((temp2 == 0)||(temp3 ==0))){
-                    tempMatrix[i][j] = infinity; 
-                }
-                else{
-                    if((temp1) < (temp2 + temp3)){
-                        tempMatrix[i][j] = temp1;
-                    }
-                    else{
-                        tempMatrix[i][j] = temp2 + temp3;
-                    }
-                }
-            }  
-        }
-        // copy to final mat
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
-                finalMatrix[i][j] = tempMatrix[i][j];
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
+            if((i != j)&&(tempMatrix[i][j] == 0)){
+            tempMatrix[i][j] = infinity;
             }
         }
     }
-    if(finalMatrix[a][b] != 0){
-        return finalMatrix[a][b];
+    for (int pivot = 0; pivot < 10; pivot++) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                
+                int temp1 = tempMatrix[i][j];
+                int temp2 = tempMatrix[i][pivot];
+                int temp3 = tempMatrix[pivot][j];
+               
+                if (temp1 > (temp2 + temp3)){
+                    tempMatrix[i][j] = temp2 + temp3;
+                }
+
+            }
+        }
+    }
+    if((tempMatrix[a][b] != 0)&&(tempMatrix[a][b] != infinity)){
+        return tempMatrix[a][b];
     }
     return -1;
-
 }
 
 

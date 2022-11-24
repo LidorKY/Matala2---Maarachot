@@ -6,24 +6,18 @@
 
 int main(){
 
-int matrix[10][10] ={{0,3,1,0,0,2,0,0,0,0},
-                    {3,0,1,0,0,0,0,0,0,0},
-                    {1,1,0,0,0,0,0,0,0,0},
-                    {0,0,0,0,0,0,0,5,0,0},
-                    {0,0,0,0,0,0,0,4,1,1},
-                    {2,0,0,0,0,0,2,0,0,0},
-                    {0,0,0,0,0,2,0,0,0,0},
-                    {0,0,0,5,4,0,0,0,0,2},
-                    {0,0,0,0,1,0,0,0,0,0},
-                    {0,0,0,0,1,0,0,2,0,0}};
+int matrix[10][10];
 int check = true;
+int badChoice;
 char order;
+
 while(check){
     scanf("%c",&order);
     switch(order){
         case ('A'):
         //func 1
         initializingMat(matrix);
+        scan("%d",&badChoice);
         break;
 
         case ('B'):
@@ -32,6 +26,7 @@ while(check){
         scanf("%d",&i);
         scanf("%d",&j);
         printf("%d",containsPath(i,j,matrix));
+        scan("%d",&badChoice);
         break;
 
         case ('C'):
@@ -39,6 +34,7 @@ while(check){
         scanf("%d",&i);
         scanf("%d",&j);
         printf("%d",shortestPath(i,j,matrix));
+        scan("%d",&badChoice);
         break;
 
         case ('D'):
@@ -47,8 +43,9 @@ while(check){
         break;
 
         default:
-        printf("pls enter a char from A,B,C,D only");
+        scan("%d",&badChoice);
         }
    }
+
     return 0;
 }
