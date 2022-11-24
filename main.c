@@ -17,7 +17,7 @@ while(check){
         case ('A'):
         //func 1
         initializingMat(matrix);
-        scan("%d",&badChoice);
+        scanf("%d",&badChoice);
         break;
 
         case ('B'):
@@ -26,7 +26,7 @@ while(check){
         scanf("%d",&i);
         scanf("%d",&j);
         printf("%d",containsPath(i,j,matrix));
-        scan("%d",&badChoice);
+        scanf("%d",&badChoice);
         break;
 
         case ('C'):
@@ -34,7 +34,7 @@ while(check){
         scanf("%d",&i);
         scanf("%d",&j);
         printf("%d",shortestPath(i,j,matrix));
-        scan("%d",&badChoice);
+        scanf("%d",&badChoice);
         break;
 
         case ('D'):
@@ -43,7 +43,7 @@ while(check){
         break;
 
         default:
-        scan("%d",&badChoice);
+        scanf("%d",&badChoice);
         }
    }
 
