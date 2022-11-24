@@ -1,35 +1,34 @@
 #include <stdio.h>
 #include "my_mat.h"
 
-#define size 10
 #define infinity 999999
-int initializingMat (int mat [size][size]){
+
+int initializingMat (int mat [10][10]){
 int num;
-int Matrix [size][size];
-for(int i = 0; i < size; i++){
-    for(int j = 0; j < size; j++){
-        Matrix[i][j] = scanf("%d",&num);
+for(int i = 0; i < 10; i++){
+    for(int j = 0; j < 10; j++){
+        mat[i][j] = scanf("%d",&num);
     }
 }
 return 0;
 }
 
-int containsPath(int a, int b, int mat [size][size]){
+int containsPath(int a, int b, int mat [10][10]){
 
-int initMatrix [size][size];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+int initMatrix [10][10];
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
             initMatrix[i][j] = mat[i][j];
         }
     }
 
-    int tempMatrix [size][size];
-    int finalMatrix [size][size];
+    int tempMatrix [10][10];
+    int finalMatrix [10][10];
 
-    for(int k = 0; k < size; k++){   
+    for(int k = 0; k < 10; k++){   
         int temp1, temp2, temp3;
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
+        for(int i = 0; i < 10; i++){
+            for(int j = 0; j < 10; j++){
                 temp1 = initMatrix[i][j];
                 temp2 = initMatrix[i][k];
                 temp3 = initMatrix[k][j];
@@ -53,8 +52,8 @@ int initMatrix [size][size];
             }  
         }
         // copy to final mat
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
+        for(int i = 0; i < 10; i++){
+            for(int j = 0; j < 10; j++){
                 finalMatrix[i][j] = tempMatrix[i][j];
             }
         }
@@ -68,22 +67,22 @@ int initMatrix [size][size];
 
 }
 
-int shortestPath(int a, int b, int mat [size][size] ){
+int shortestPath(int a, int b, int mat [10][10] ){
 
-int initMatrix [size][size];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+int initMatrix [10][10];
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
             initMatrix[i][j] = mat[i][j];
         }
     }
 
-    int tempMatrix [size][size];
-    int finalMatrix [size][size];
+    int tempMatrix [10][10];
+    int finalMatrix [10][10];
 
-    for(int k = 0; k < size; k++){   
+    for(int k = 0; k < 10; k++){   
         int temp1, temp2, temp3;
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
+        for(int i = 0; i < 10; i++){
+            for(int j = 0; j < 10; j++){
                 temp1 = initMatrix[i][j];
                 temp2 = initMatrix[i][k];
                 temp3 = initMatrix[k][j];
@@ -107,8 +106,8 @@ int initMatrix [size][size];
             }  
         }
         // copy to final mat
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
+        for(int i = 0; i < 10; i++){
+            for(int j = 0; j < 10; j++){
                 finalMatrix[i][j] = tempMatrix[i][j];
             }
         }

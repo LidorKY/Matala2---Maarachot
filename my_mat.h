@@ -1,5 +1,3 @@
-#define size 10
-
-int initializingMat(int mat [size][size]);
-int shortestPath (int,int,int mat[size][size]);
-int containsPath (int,int,int mat[size][size]);
+int initializingMat(int mat [10][10]);
+int shortestPath (int a,int b,int mat[10][10]);
+int containsPath (int a,int b,int mat[10][10]);

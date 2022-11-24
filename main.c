@@ -1,5 +1,4 @@
 #include "stdio.h"
-#include "my_mat.c"
 #include "my_mat.h"
 
 #define true 1;
@@ -8,36 +7,39 @@
 int main(){
 
 int matrix[10][10];
-enum run{A=1,B,C,D} state;
 int check = true;
 char order;
 while(check){
-    scanf("%c",order);
-    switch(state){
-        case(1):
+    scanf("%c",&order);
+    switch(order){
+        case ('A'):
         //func 1
-        get_matrix(matrix);
+        initializingMat(matrix);
         break;
-        case(2):
+
+        case ('B'):
         //func 2
         int i,j;
         scanf("%d",&i);
         scanf("%d",&j);
         printf("%d",containsPath(i,j,matrix));
         break;
-        case(3):
+
+        case ('C'):
         //func 3
         scanf("%d",&i);
         scanf("%d",&j);
-        printf("%d",shortest_path(i,j,matrix));
+        printf("%d",shortestPath(i,j,matrix));
         break;
-        case(4):
+
+        case ('D'):
         //exit loop
         check = false;
         break;
+
         default:
         printf("pls enter a char from A,B,C,D only");
         }
-    }
+   }
     return 0;
 }
