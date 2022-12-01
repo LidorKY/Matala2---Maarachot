@@ -12,35 +12,31 @@ char order;
 
 while(check){
     scanf("%c",&order);
-    switch(order){
-        case ('A'):
-        //func 1
+    if(order=='A'){//func 1
         initializingMat(matrix);
-        break;
-
-        case ('B'):
+        } 
+        else if(order=='B'){
         //func 2
         int i,j;
         scanf("%d",&i);
         scanf("%d",&j);
-        printf("%d",containsPath(i,j,matrix));
-        break;
-
-        case ('C'):
+        containsPath(i,j,matrix);
+        }
+        else if(order=='C'){
         //func 3
+        int i,j;
         scanf("%d",&i);
         scanf("%d",&j);
-        printf("%d",shortestPath(i,j,matrix));
-        break;
-
-        case ('D'):
+        printf("%d \n",shortestPath(i,j,matrix));
+        }
+        else if(order=='D'){
         //exit loop
         check = false;
-        break;
-
-        default:
         }
-   }
+        else{
+        }
+    }
+
 
     return 0;
 }
