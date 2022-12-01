@@ -46,7 +46,7 @@ int containsPath(int a, int b, int mat [10][10]){
         printf("True");
         return 0;
     }
-    printf("False");
+    printf("False\n");
     return 0;
 }
 
