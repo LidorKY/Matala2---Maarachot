@@ -3,6 +3,9 @@
 
 #define infinity 7777
 
+#define true 1
+#define false 0
+
 int initializingMat (int mat [10][10]){
 int num;
 for(int i = 0; i < 10; i++){
@@ -43,11 +46,14 @@ int containsPath(int a, int b, int mat [10][10]){
         }
     }  
     if((tempMatrix[a][b] != 0)&&(tempMatrix[a][b] != infinity)){
-        printf("True");
-        return 0;
+        printf("True\n");
+        return true;
     }
-    printf("False\n");
-    return 0;
+    else{
+        printf("False\n");
+        return false;
+    }
+
 }
 
 int shortestPath(int a, int b, int mat [10][10] ){
