@@ -8,7 +8,6 @@ int main(){
 
 int matrix[10][10];
 int check = true;
-int badChoice;
 char order;
 
 while(check){
@@ -17,7 +16,6 @@ while(check){
         case ('A'):
         //func 1
         initializingMat(matrix);
-        scanf("%d",&badChoice);
         break;
 
         case ('B'):
@@ -26,7 +24,6 @@ while(check){
         scanf("%d",&i);
         scanf("%d",&j);
         printf("%d",containsPath(i,j,matrix));
-        scanf("%d",&badChoice);
         break;
 
         case ('C'):
@@ -34,7 +31,6 @@ while(check){
         scanf("%d",&i);
         scanf("%d",&j);
         printf("%d",shortestPath(i,j,matrix));
-        scanf("%d",&badChoice);
         break;
 
         case ('D'):
@@ -43,7 +39,6 @@ while(check){
         break;
 
         default:
-        scanf("%d",&badChoice);
         }
    }
 
